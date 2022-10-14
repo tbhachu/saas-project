@@ -1,5 +1,5 @@
-How to Play Esraj
-Learning Indian Classical Stringed Instruments
+#How to Play Esraj
+##Learning Indian Classical Stringed Instruments
 
 Project Properties
 Author: Tarsem Bhachu
