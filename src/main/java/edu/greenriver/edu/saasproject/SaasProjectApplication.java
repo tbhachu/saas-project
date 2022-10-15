@@ -16,8 +16,7 @@ public class SaasProjectApplication {
 
         RaagService raags = new RaagService();
 
-        raags.addRaag("Kaafi", "Khamaj", "Evening",
-                "Sa Re ga ma Pa Da ni Sa", "Sa ni Da Pa ma g Re Sa");
+        raags.addRaag("Kaafi", "Khamaj", "Evening", "Pa");
 
 
         System.out.println(raags);
