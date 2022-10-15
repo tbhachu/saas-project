@@ -1,28 +1,49 @@
 package edu.greenriver.edu.saasproject.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Raag
 {
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int raagID;
+
+    private String raagName;
     private String thaat;
     private String time;
     private String aroh;
     private String avroh;
 
-    public Raag(String name, String thaat, String time,
+    public Raag(String raagName, String thaat, String time,
                 String aroh, String avroh) {
-        this.name = name;
+        this.raagName = raagName;
         this.thaat = thaat;
         this.time = time;
         this.aroh = aroh;
         this.avroh = avroh;
     }
 
-    public String getName() {
-        return name;
+    public int getRaagID() {
+        return raagID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getRaagName() {
+        return raagName;
+    }
+
+    public void setRaagName(String raagName) {
+        this.raagName = raagName;
     }
 
     public String getThaat() {
@@ -60,7 +81,7 @@ public class Raag
     @Override
     public String toString() {
         return "Raag{" +
-                "name='" + name + '\'' +
+                "name='" + raagName + '\'' +
                 ", thaat='" + thaat + '\'' +
                 ", time='" + time + '\'' +
                 ", aroh='" + aroh + '\'' +
