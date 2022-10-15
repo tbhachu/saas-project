@@ -68,17 +68,23 @@ public class RaagService
     }
 
     //DELETE
-    public void deleteJoke(UUID id)
+    public void deleteRaag(UUID id)
     {
         raags = raags.stream()
                 .filter(raag -> !raag.getRaagID().equals(id))
                 .toList();
     }
 
-    public boolean jokeExists(UUID id)
+    public boolean raagExists(UUID id)
     {
         return raags.stream()
                 .anyMatch(raag -> raag.getRaagID().equals(id));
     }
 
+    @Override
+    public String toString() {
+        return "RaagService{" +
+                "raags=" + raags +
+                '}';
+    }
 }
