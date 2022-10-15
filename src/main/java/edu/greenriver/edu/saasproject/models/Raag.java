@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -17,7 +18,7 @@ public class Raag
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int raagID;
+    private UUID raagID;
 
     private String raagName;
     private String thaat;
@@ -26,7 +27,9 @@ public class Raag
     private String avroh;
 
     public Raag(String raagName, String thaat, String time,
-                String aroh, String avroh) {
+                String aroh, String avroh)
+    {
+        raagID = UUID.randomUUID();
         this.raagName = raagName;
         this.thaat = thaat;
         this.time = time;
@@ -34,7 +37,7 @@ public class Raag
         this.avroh = avroh;
     }
 
-    public int getRaagID() {
+    public UUID getRaagID() {
         return raagID;
     }
 
