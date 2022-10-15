@@ -23,18 +23,17 @@ public class Raag
     private String raagName;
     private String thaat;
     private String time;
-    private String aroh;
-    private String avroh;
+    private String vaadi;
 
-    public Raag(String raagName, String thaat, String time,
-                String aroh, String avroh)
+
+    public Raag(String raagName, String thaat, String time, String vaadi)
     {
         raagID = UUID.randomUUID();
         this.raagName = raagName;
         this.thaat = thaat;
         this.time = time;
-        this.aroh = aroh;
-        this.avroh = avroh;
+        this.vaadi = vaadi;
+
     }
 
     public UUID getRaagID() {
@@ -65,32 +64,22 @@ public class Raag
         this.time = time;
     }
 
-    public String getAroh() {
-        return aroh;
+    public String getVaadi() {
+        return vaadi;
     }
 
-    public void setAroh(String aroh) {
-        this.aroh = aroh;
-    }
-
-    public String getAvroh() {
-        return avroh;
-    }
-
-    public void setAvroh(String avroh) {
-        this.avroh = avroh;
+    public void setVaadi(String vaadi) {
+        this.vaadi = vaadi;
     }
 
     @Override
     public String toString() {
         return "Raag{" +
-                "name='" + raagName + '\'' +
-                "ID='" + raagID + '\'' +
-
+                "raagID=" + raagID +
+                ", raagName='" + raagName + '\'' +
                 ", thaat='" + thaat + '\'' +
                 ", time='" + time + '\'' +
-                ", aroh='" + aroh + '\'' +
-                ", avroh='" + avroh + '\'' +
+                ", vaadi='" + vaadi + '\'' +
                 '}';
     }
 }
