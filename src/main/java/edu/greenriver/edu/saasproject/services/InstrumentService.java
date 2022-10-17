@@ -44,7 +44,8 @@ public class InstrumentService
     }
 
     //UPDATE
-    public Instrument updateInstrument(UUID id, String name)
+    public Instrument updateInstrument(UUID id, String name, String type,
+                                       String material, boolean carryBag)
     {
         Optional<Instrument> foundInstrument = instruments.stream()
                 .filter(instrument -> instrument.getInstrumentID().equals(id))
@@ -55,6 +56,9 @@ public class InstrumentService
             //update it
             Instrument instrument = foundInstrument.get();
             instrument.setName(name);
+            instrument.setType(type);
+            instrument.setMaterial(material);
+            instrument.setCarryBag(carryBag);
             return instrument;
         }
         else
