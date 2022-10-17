@@ -39,7 +39,6 @@ public class WebApiInstrument
     @GetMapping("query")
     public ResponseEntity<Object> filterInstruments(@RequestBody Query query)
     {
-        //we won't allow this end-point to be used with an empty query
         if (query.getQueryValue() == null || query.getQueryValue().isEmpty())
         {
             return new ResponseEntity<>("The query string cannot be empty/null", HttpStatus.BAD_REQUEST);
@@ -80,7 +79,8 @@ public class WebApiInstrument
         }
 
         return new ResponseEntity<>(service.updateInstrument(tempInstrument.getInstrumentID(),
-                tempInstrument.getName()), HttpStatus.OK);
+                tempInstrument.getName(), tempInstrument.getType(), tempInstrument.getMaterial(),
+                tempInstrument.isCarryBag()), HttpStatus.OK);
     }
 
     @DeleteMapping("")
