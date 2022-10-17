@@ -1,5 +1,4 @@
 package edu.greenriver.edu.saasproject.controllers;
-
 import edu.greenriver.edu.saasproject.models.Query;
 import edu.greenriver.edu.saasproject.models.Raag;
 import edu.greenriver.edu.saasproject.services.RaagService;
@@ -9,11 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("api/v1/raag")
 public class WebApiRaag {
-
 
     @RequestMapping("/home")
     public String home()
@@ -39,6 +36,7 @@ public class WebApiRaag {
     // how do we get inputs through a request
     // **************************************
 
+    //GET request to http://localhost:8081/api/v1/query
     @GetMapping("query")
     public ResponseEntity<Object> filterRaags(@RequestBody Query query)
     {
@@ -82,7 +80,8 @@ public class WebApiRaag {
             return new ResponseEntity<>("The Raag name cannot be empty/null", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(service.updateRaag(tempRaag.getRaagID(), tempRaag.getRaagName()), HttpStatus.OK);
+        return new ResponseEntity<>(service.updateRaag(tempRaag.getRaagID(), tempRaag.getRaagName(),
+                tempRaag.getThaat(), tempRaag.getTime(), tempRaag.getVaadi()), HttpStatus.OK);
     }
 
     @DeleteMapping("")
