@@ -14,8 +14,8 @@ public class RaagService
     private List<Raag> raags = new ArrayList<>(List.of(
             new Raag("Kalyan", "Kalyaan", "Evening", "Ga"),
             new Raag("Bihag", "Bilaaval", "Night", "Ga"),
-            new Raag("Desh", "Khamaj", "Morning", "Re"),
-            new Raag("Maajh", "Khamaj", "Night", "Ma")
+            new Raag("Desh", "Khamaj", "Morning", "Re")
+            //new Raag("Maajh", "Khamaj", "Night", "Ma")
 
     ));
 
@@ -43,7 +43,8 @@ public class RaagService
     }
 
     //UPDATE
-    public Raag updateRaag(UUID id, String raagName)
+    public Raag updateRaag(UUID id, String raagName, String thaat,
+                           String time, String vaadi)
     {
         Optional<Raag> foundRaag = raags.stream()
                 .filter(raag -> raag.getRaagID().equals(id))
@@ -54,6 +55,9 @@ public class RaagService
             //update it
             Raag raag = foundRaag.get();
             raag.setRaagName(raagName);
+            raag.setThaat(thaat);
+            raag.setTime(time);
+            raag.setVaadi(vaadi);
             return raag;
         }
         else
