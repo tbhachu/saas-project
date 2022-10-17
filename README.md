@@ -17,3 +17,7 @@ Project Description
 Use Spring Boot framework to build a software as a service (SaaS) application that 
 is developed or deployed in the cloud. This website will feature a basic introduction 
 on how to play the stringed instrument, Esraj.
+
+10/16/2022
+Assignment: Writing a Web API
+Link to PostMan Collection Publication: https://documenter.getpostman.com/view/23585703/2s847CwaeC
