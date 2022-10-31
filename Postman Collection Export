@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "5eed16cc-8d32-4f2c-9f8a-c874f81416bb",
+		"name": "Saas Api Collection_1",
+		"description": "#### **Saas App Collection**\n\nA mock API that provides CRUD applications for tracking Raags and Instruments. This will allow modifications to various Raags and instrument objects by accessing endpoints.\n\n**Author**: Tarsem Bhachu\n\n**Class**: SDEV 372\n\n**Quarter**: Fall 2022 Quarter\n\n**Endpoints**:\n\n- /api/v1/raags - accesses Raag records\n- /api/v1/instrument - accesses Instrument records",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23585703"
+	},
+	"item": [
+		{
+			"name": "Get all Raags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/raag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"raag"
+					]
+				},
+				"description": "Retrieves all Raags using a Get request.\n\nResponses:\n\n- 200 (OK) - All Raags found and returned."
+			},
+			"response": []
+		},
+		{
+			"name": "Add new Raag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"raagName\": \"Maajh\",\r\n        \"thaat\": \"Khamaj\",\r\n        \"time\": \"Night\",\r\n        \"vaadi\": \"Ma\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/raag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"raag"
+					]
+				},
+				"description": "Retrieves a Raag by looking up its ID.\n\nResponses:\n\n- 200 (OK) - Raag has been found.\n- 400 (NOT FOUND) - Raag was not found."
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Raag",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"raagID\": \"7e99d9bd-2bb1-463e-90d3-a081d460dca1\",\r\n        \"raagName\": \"Kalyaan\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/raag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"raag"
+					]
+				},
+				"description": "Updates a Raag and its properties by looking up the Raag name.\n\nResponses:\n\n- 201 (OK) - Raag's information was updated successfully.\n- 404 (NOT FOUND) - Raag was not updated, name was not found."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Raag",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"raagID\": \"68dce0f8-6576-4dd3-aec9-a5ce180717ec\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/raag",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"raag"
+					]
+				},
+				"description": "Deletes a Raag by matching its ID.\n\nResponses:\n\n- 204 (OK) - Raag was deleted successfully.\n- 404 (NOT FOUND) - ID provided is not correct, Raag was not found."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all instruments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"instrumentID\": \"527beb2d-f0f9-40bc-bbab-923cff185f73\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/instrument",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"instrument"
+					]
+				},
+				"description": "StartFragment\n\nRetrieves all Instruments using a Get request.\n\nResponses:\n\n- 200 (OK) - All Instruments found and returned.\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Add an instrument",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tanpura\",\r\n        \"type\": \"Percussion\",\r\n        \"material\": \"Shisham\",\r\n        \"carryBag\": false\r\n       \r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/instrument",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"instrument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an instrument",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"instrumentID\": \"3bc0b4fa-601b-4248-a32a-dd0b2b90b9a4\",\r\n        \"name\": \"Esraj\",\r\n        \"type\": \"Stringed\",\r\n        \"material\": \"Tun\",\r\n        \"carryBag\": false\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/instrument",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"instrument"
+					]
+				},
+				"description": "StartFragment\n\nUpdates a instrument and its properties by looking up the instrument's name.\n\nResponses:\n\n- 201 (OK) - Instrument's information was updated successfully.\n- 404 (NOT FOUND) - Instrument was not updated, name was not found.\n    \n\nEndFragment"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an instrument",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"instrumentID\": \"f42d716f-a917-4d71-9e3b-ea15f4d62903\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/v1/instrument",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"v1",
+						"instrument"
+					]
+				},
+				"description": "StartFragment\n\nDeletes a Instrument by matching its ID.\n\nResponses:\n\n- 204 (OK) - Instrument was deleted successfully.\n- 404 (NOT FOUND) - ID provided is not correct, Instrument was not found.\n    \n\nEndFragment"
+			},
+			"response": []
+		}
+	]
+}
