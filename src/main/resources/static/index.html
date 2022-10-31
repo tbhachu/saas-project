@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Gurmat Sangeet Vadiyala</title>
+
+    <!-- Scripts -->
+    <script src="js/load_data.js"></script>
+
+</head>
+<body>
+
+    <!------------------ Navbar ------------------------>
+    <nav class="navbar sticky-top navbar-expand-md  navbar-dark">
+        <a href="index.html" class="navbar-brand">
+            <img id="navLogo" class="img-fluid navbar-brand" src="images/mainLogo.png"
+            alt="Gurmat Sangeet Vadiyala logo">GSV</a>
+
+    </nav>
+
+    <!------------------ Showcase -------------------->
+    <section class="bg-dark text-light p-2 text-center text-sm-start" id="backgroundImg">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div class="mainTitle">
+                    <h1 id="title">Lessons for <span class="text-warning">
+                                Gurmat Sangeet Class</span> </h1>
+                    <p class="lead">
+                        Online resource for Kirtan classes, tabla, saaj and vocal.
+                    </p>
+                </div>
+            </div>
+            <!-------------------- Form --------------------->
+            <div class="mainRegister">
+                <div class="register">
+                    <h2>Register Here</h2><hr>
+                    <form id="register">
+                        <label>First Name: </label><br>
+                        <input type="text" name="fname" class="name" id="fname" placeholder="Enter Your First Name">
+                        <br><br>
+                        <label>First Name: </label><br>
+                        <input type="text" name="lname" class="name" id="lname" placeholder="Enter Your Last Name">
+                        <br><br>
+
+                        <label>Select Raag</label><br>
+                        <select>
+                            <option value="Raag">Select Raag</option>
+                            <option value="Kalyan">Kalyan</option>
+                            <option value="Bihag">Bihag</option>
+                            <option value="Desh">Desh</option>
+                        </select>
+                        <br><br>
+                        <label>Select an Instrument</label><br>
+                        <select>
+                            <option value="instrument">Select Instrument</option>
+                            <option value="Tabla">Tabla</option>
+                            <option value="Esraj">Esraj</option>
+                            <option value="Rabab">Rabab</option>
+                        </select>
+                        <br><br>
+
+                        <input type="submit" value="Submit" name="submit" id="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--
+        <div id="raags-list">
+
+        </div>
+        -->
+
+
+    </section>
+
+    <!---------------- Footer --------------------->
+    <footer class="p-3 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright &copy; 2022 Gurmat Sangeet Vadiyala</p>
+        </div>
+    </footer>
+
+</body>
+</html>
