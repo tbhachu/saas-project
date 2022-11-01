@@ -74,7 +74,7 @@ public class WebApiRaag {
         {
             return new ResponseEntity<>("Raag does not exist!", HttpStatus.NOT_FOUND);
         }
-        //don't add an empty joke
+        //don't add an empty Raag
         else if (tempRaag.getRaagName() == null || tempRaag.getRaagName().isEmpty())
         {
             return new ResponseEntity<>("The Raag name cannot be empty/null", HttpStatus.BAD_REQUEST);

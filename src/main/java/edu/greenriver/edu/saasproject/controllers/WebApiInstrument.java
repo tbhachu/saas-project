@@ -54,7 +54,7 @@ public class WebApiInstrument
     @PostMapping("")
     public ResponseEntity<Object> addInstrument(@RequestBody Instrument tempInstrument)
     {
-        //don't add an empty joke
+        //don't add an empty instrument
         if (tempInstrument.getInstrumentName() == null || tempInstrument.getInstrumentName().isEmpty())
         {
             return new ResponseEntity<>("The instrument name cannot be empty/null", HttpStatus.BAD_REQUEST);
@@ -72,7 +72,7 @@ public class WebApiInstrument
         {
             return new ResponseEntity<>("Instrument does not exist!", HttpStatus.NOT_FOUND);
         }
-        //don't add an empty joke
+        //don't add an empty instrument
         else if (tempInstrument.getInstrumentName() == null || tempInstrument.getInstrumentName().isEmpty())
         {
             return new ResponseEntity<>("The instrument name cannot be empty/null", HttpStatus.BAD_REQUEST);
