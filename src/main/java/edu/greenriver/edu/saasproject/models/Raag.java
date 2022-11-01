@@ -17,21 +17,21 @@ import java.util.UUID;
 public class Raag
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private UUID raagID;
 
     private String raagName;
     private String thaat;
-    private String time;
+    private String raagTime;
     private String vaadi;
 
 
-    public Raag(String raagName, String thaat, String time, String vaadi)
+    public Raag(String raagName, String thaat, String raagTime, String vaadi)
     {
         raagID = UUID.randomUUID();
         this.raagName = raagName;
         this.thaat = thaat;
-        this.time = time;
+        this.raagTime = raagTime;
         this.vaadi = vaadi;
 
     }
@@ -56,12 +56,12 @@ public class Raag
         this.thaat = thaat;
     }
 
-    public String getTime() {
-        return time;
+    public String getRaagTime() {
+        return raagTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setRaagTime(String raagTime) {
+        this.raagTime = raagTime;
     }
 
     public String getVaadi() {
@@ -78,7 +78,7 @@ public class Raag
                 "raagID=" + raagID +
                 ", raagName='" + raagName + '\'' +
                 ", thaat='" + thaat + '\'' +
-                ", time='" + time + '\'' +
+                ", time='" + getRaagTime() + '\'' +
                 ", vaadi='" + vaadi + '\'' +
                 '}';
     }
