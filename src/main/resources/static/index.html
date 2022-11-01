@@ -1,3 +1,14 @@
+<!--
+SDEV 372
+Green River College
+File: load_data.js
+
+Description: This is the index.html file which represents the home page.
+
+author: Tarsem Bhachu
+version 1.0
+-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
@@ -14,8 +25,7 @@
 
     <title>Gurmat Sangeet Vadiyala</title>
 
-    <!-- Scripts -->
-    <script src="js/load_data.js"></script>
+
 
 </head>
 <body>
@@ -43,45 +53,38 @@
             <div class="mainRegister">
                 <div class="register">
                     <h2>Register Here</h2><hr>
-                    <form id="register">
-                        <label>First Name: </label><br>
+                    <form id="register" class="post">
+
                         <input type="text" name="fname" class="name" id="fname" placeholder="Enter Your First Name">
                         <br><br>
-                        <label>First Name: </label><br>
+
                         <input type="text" name="lname" class="name" id="lname" placeholder="Enter Your Last Name">
                         <br><br>
 
                         <label>Select Raag</label><br>
-                        <select>
-                            <option value="Raag">Select Raag</option>
-                            <option value="Kalyan">Kalyan</option>
-                            <option value="Bihag">Bihag</option>
-                            <option value="Desh">Desh</option>
-                        </select>
-                        <br><br>
+                        <div id="raags-list">
+                        </div>
+                        <br>
+
                         <label>Select an Instrument</label><br>
-                        <select>
-                            <option value="instrument">Select Instrument</option>
-                            <option value="Tabla">Tabla</option>
-                            <option value="Esraj">Esraj</option>
-                            <option value="Rabab">Rabab</option>
-                        </select>
+                        <div id="instruments-list">
+                        </div>
                         <br><br>
 
-                        <input type="submit" value="Submit" name="submit" id="submit">
+                        <button type="submit" name="submit" id="submit">Submit</button>
                     </form>
                 </div>
             </div>
+
+            <!------------ Student's choices output --------------->
+            <div class="s2">
+                <div>
+                    <h2>Your Class Details</h2><hr>
+
+                </div>
+            </div>
+
         </div>
-
-
-
-        <!--
-        <div id="raags-list">
-
-        </div>
-        -->
-
 
     </section>
 
@@ -92,5 +95,8 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="js/load_data.js"></script>
+    <script src="js/post_data.js"></script>
 </body>
 </html>
