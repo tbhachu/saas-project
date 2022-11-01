@@ -61,7 +61,7 @@ div.mainRegister {
     margin-bottom: 40px;
 }
 
-h2 {
+h2{
     text-align: center;
     padding: 20px;
     font-family: sans-serif;
@@ -96,7 +96,7 @@ input.name {
     box-shadow: inset 1px 1px 5px rgba(0,0,0,0.3);
 }
 
-input#submit {
+button {
     width: 200px;
     padding: 7px;
     font-size: 16px;
@@ -111,7 +111,30 @@ input#submit {
     transition-duration: 0.4s;
 }
 
-input#submit:hover {
+button:hover {
     background-color: #3babe7; /* Green */
     color: white;
+}
+
+.s2 {
+    width: 500px;
+    margin-bottom: 15px;
+
+    background-color: rgba(0,0,0,0.5);
+
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color:#fff;
+}
+
+#raags-list {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color:#fff;
 }
