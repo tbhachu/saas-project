@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.UUID;
 
@@ -18,15 +19,15 @@ public class Instrument
     @Id
     @GeneratedValue
     private UUID instrumentID;
-    private String name;
-    private String type;
+    private String instrumentName;
+    private String instrumentType;
     private String material;
     private boolean carryBag;
 
-    public Instrument(String name, String type, String material, boolean carryBag) {
+    public Instrument(String instrumentName, String instrumentType, String material, boolean carryBag) {
         instrumentID = UUID.randomUUID();
-        this.name = name;
-        this.type = type;
+        this.instrumentName = instrumentName;
+        this.instrumentType = instrumentType;
         this.material = material;
         this.carryBag = carryBag;
     }
@@ -35,20 +36,20 @@ public class Instrument
         return instrumentID;
     }
 
-    public String getName() {
-        return name;
+    public String getInstrumentName() {
+        return instrumentName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInstrumentName(String instrumentName) {
+        this.instrumentName = instrumentName;
     }
 
-    public String getType() {
-        return type;
+    public String getInstrumentType() {
+        return instrumentType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setInstrumentType(String instrumentType) {
+        this.instrumentType = instrumentType;
     }
 
     public String getMaterial() {
@@ -71,8 +72,8 @@ public class Instrument
     public String toString() {
         return "Instrument{" +
                 "instrumentID=" + instrumentID +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
+                ", name='" + instrumentName + '\'' +
+                ", type='" + instrumentType + '\'' +
                 ", material='" + material + '\'' +
                 ", carryBag=" + carryBag +
                 '}';
