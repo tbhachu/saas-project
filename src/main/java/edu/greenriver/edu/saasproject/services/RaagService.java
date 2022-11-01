@@ -12,10 +12,10 @@ import java.util.UUID;
 public class RaagService
 {
     private List<Raag> raags = new ArrayList<>(List.of(
+            new Raag("None", "N/A", "N/A", "N/A"),
             new Raag("Kalyan", "Kalyaan", "Evening", "Ga"),
             new Raag("Bihag", "Bilaaval", "Night", "Ga"),
             new Raag("Desh", "Khamaj", "Morning", "Re")
-            //new Raag("Maajh", "Khamaj", "Night", "Ma")
 
     ));
 

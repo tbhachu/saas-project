@@ -14,6 +14,7 @@ public class InstrumentService
 {
 
     private List<Instrument> instruments = new ArrayList<>(List.of(
+            new Instrument("None", "N/A", "N/A", false),
             new Instrument("Tabla", "Percussion", "Shisham", true),
             new Instrument("Esraj", "Stringed", "Tun", true),
             new Instrument("Rabab", "Stringed", "Mulberry", false)
