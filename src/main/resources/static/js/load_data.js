@@ -48,13 +48,14 @@ function getRaags(data)
     // access the list in our HTML
     let raagsList = document.getElementById("raags-list");
     let select = document.createElement("select");
+    select.setAttribute('id', 'raagChoice');
 
     for (let i = 0; i < data.length; i++) {
         let raag = data[i];
 
         // create all elements
-
         let option = document.createElement("option");
+
 
         // add contents
         option.innerText = raag.raagName;
@@ -82,13 +83,14 @@ function getInstruments(data)
     // access the list in our HTML
     let instrumentList = document.getElementById("instruments-list");
     let select = document.createElement("select");
+    select.setAttribute('id', 'instrumentChoice');
 
     for (let i = 0; i < data.length; i++) {
         let instrument = data[i];
 
         // create all elements
-
         let option = document.createElement("option");
+
 
         // add contents
         option.innerText = instrument.instrumentName;
@@ -102,23 +104,32 @@ function getInstruments(data)
 }
 
 
+
 const form1 = document.getElementById('register');
-form1.addEventListener('submit', addRaag);
+form1.addEventListener('submit', addStudent);
 
-function addRaag(e) {
-    e.preventDefault();
+function addStudent(event) {
+    event.preventDefault();
 
-    const fName = document.getElementById('fname').value;
-    const lName = document.getElementById('lname').value;
+    let fName = document.getElementById('fname').value;
+    let lName = document.getElementById('lname').value;
 
-    fetch("http://localhost:8081/api/v1/raag", {
+    let srChoice = document.getElementById('raagChoice');
+    let srcValue = srChoice.options[srChoice.selectedIndex].text;
+    let siChoice = document.getElementById('instrumentChoice');
+    let sicValue = siChoice.options[siChoice.selectedIndex].text;
+
+
+    fetch("http://localhost:8081/api/v1/student", {
         method: 'post',
         body: JSON.stringify({
-            fname: fName,
-            lname: lName,
+            studentFName: fName,
+            studentLName: lName,
+            studentRaag: srcValue,
+            studentInstrument: sicValue
         }),
         header: {
-            "Content-Type": "application/json"
+            "Content-Type": "text/plain;charset=UTF-8"
         }
     })
         .then(function (response) {
@@ -126,9 +137,11 @@ function addRaag(e) {
         })
         .then(function (data) {
             console.log(data)
-            let results = document.getElementById('raags-list');
+            let results = document.getElementById('class-details');
 
-            results.innerHTML = '<p>Thank you ${data.}</p>';
+            results.innerHTML = '<h4>Class Details</h4><hr>' + "Thank you " + fName + " " + lName + ", " +
+            "your lesson will be Raag " + srcValue + ". Your instrument of choice is " +
+            sicValue + ".";
 
         })
 }
