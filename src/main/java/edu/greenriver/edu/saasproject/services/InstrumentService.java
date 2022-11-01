@@ -21,10 +21,10 @@ public class InstrumentService
     ));
 
     //CREATE
-    public Instrument addInstrument(String name, String type,
+    public Instrument addInstrument(String instrumentName, String instrumentType,
                         String material, boolean carryBag)
     {
-        Instrument added = new Instrument(name, type, material, carryBag);
+        Instrument added = new Instrument(instrumentName, instrumentType, material, carryBag);
         instruments.add(added);
         return added;
     }
@@ -38,13 +38,13 @@ public class InstrumentService
     public List<Instrument> searchInstruments(String queryValue)
     {
         return instruments.stream()
-                .filter(instrument -> instrument.getName().toLowerCase()
+                .filter(instrument -> instrument.getInstrumentName().toLowerCase()
                         .contains(queryValue.toLowerCase()))
                 .toList();
     }
 
     //UPDATE
-    public Instrument updateInstrument(UUID id, String name, String type,
+    public Instrument updateInstrument(UUID id, String instrumentName, String instrumentType,
                                        String material, boolean carryBag)
     {
         Optional<Instrument> foundInstrument = instruments.stream()
@@ -55,8 +55,8 @@ public class InstrumentService
         {
             //update it
             Instrument instrument = foundInstrument.get();
-            instrument.setName(name);
-            instrument.setType(type);
+            instrument.setInstrumentName(instrumentName);
+            instrument.setInstrumentType(instrumentType);
             instrument.setMaterial(material);
             instrument.setCarryBag(carryBag);
             return instrument;
