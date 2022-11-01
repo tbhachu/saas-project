@@ -14,11 +14,5 @@ public class SaasProjectApplication {
 
         SpringApplication.run(SaasProjectApplication.class, args);
 
-        RaagService raags = new RaagService();
-
-        raags.addRaag("Kaafi", "Khamaj", "Evening", "Pa");
-
-
-        System.out.println(raags);
     }
 }
