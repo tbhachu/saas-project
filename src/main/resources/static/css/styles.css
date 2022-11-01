@@ -1,9 +1,12 @@
 /*
+SDEV 372
+Green River College
 
-Author: Tarsem Bhachu
-Version: 1.0
 Description: This file applies various styles to fonts,
 backgrounds and elements.
+
+author: Tarsem Bhachu
+version: 1.0
 
 */
 
@@ -119,9 +122,7 @@ button:hover {
 .s2 {
     width: 500px;
     margin-bottom: 15px;
-
     background-color: rgba(0,0,0,0.5);
-
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -130,11 +131,23 @@ button:hover {
 }
 
 #raags-list {
-    background-color: rgba(0,0,0,0.5);
     width: 100%;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
     color:#fff;
+}
+
+#instruments-list {
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color:#fff;
+}
+
+select {
+    width: 100%;
 }
