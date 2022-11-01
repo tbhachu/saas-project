@@ -21,9 +21,9 @@ public class RaagService
 
     //CREATE
     public Raag addRaag(String raagName, String thaat,
-                        String time, String vaadi)
+                        String raagTime, String vaadi)
     {
-        Raag added = new Raag(raagName, thaat, time, vaadi);
+        Raag added = new Raag(raagName, thaat, raagTime, vaadi);
         raags.add(added);
         return added;
     }
@@ -44,7 +44,7 @@ public class RaagService
 
     //UPDATE
     public Raag updateRaag(UUID id, String raagName, String thaat,
-                           String time, String vaadi)
+                           String raagTime, String vaadi)
     {
         Optional<Raag> foundRaag = raags.stream()
                 .filter(raag -> raag.getRaagID().equals(id))
@@ -56,7 +56,7 @@ public class RaagService
             Raag raag = foundRaag.get();
             raag.setRaagName(raagName);
             raag.setThaat(thaat);
-            raag.setTime(time);
+            raag.setRaagTime(raagTime);
             raag.setVaadi(vaadi);
             return raag;
         }
