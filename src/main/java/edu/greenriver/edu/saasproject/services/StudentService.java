@@ -1,6 +1,4 @@
 package edu.greenriver.edu.saasproject.services;
-
-import edu.greenriver.edu.saasproject.models.Raag;
 import edu.greenriver.edu.saasproject.models.Student;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +33,8 @@ public class StudentService
     public List<Student> searchStudents(String queryValue)
     {
         return students.stream()
-                .filter(student -> student.getStudentLName().toLowerCase()
+                .filter(student -> student.getStudentFName().toLowerCase()
+                        .contains(queryValue.toLowerCase()) || student.getStudentLName().toLowerCase()
                         .contains(queryValue.toLowerCase()))
                 .toList();
     }
