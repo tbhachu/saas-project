@@ -63,7 +63,7 @@ public class WebApiRaag {
         }
 
         return new ResponseEntity<>(service.addRaag(tempRaag.getRaagName(), tempRaag.getThaat(),
-                tempRaag.getTime(), tempRaag.getVaadi()), HttpStatus.CREATED);
+                tempRaag.getRaagTime(), tempRaag.getVaadi()), HttpStatus.CREATED);
     }
 
     @PutMapping("")
@@ -81,7 +81,7 @@ public class WebApiRaag {
         }
 
         return new ResponseEntity<>(service.updateRaag(tempRaag.getRaagID(), tempRaag.getRaagName(),
-                tempRaag.getThaat(), tempRaag.getTime(), tempRaag.getVaadi()), HttpStatus.OK);
+                tempRaag.getThaat(), tempRaag.getRaagTime(), tempRaag.getVaadi()), HttpStatus.OK);
     }
 
     @DeleteMapping("")

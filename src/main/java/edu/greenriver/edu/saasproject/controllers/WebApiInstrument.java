@@ -55,12 +55,12 @@ public class WebApiInstrument
     public ResponseEntity<Object> addInstrument(@RequestBody Instrument tempInstrument)
     {
         //don't add an empty joke
-        if (tempInstrument.getName() == null || tempInstrument.getName().isEmpty())
+        if (tempInstrument.getInstrumentName() == null || tempInstrument.getInstrumentName().isEmpty())
         {
             return new ResponseEntity<>("The instrument name cannot be empty/null", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(service.addInstrument(tempInstrument.getName(), tempInstrument.getType(),
+        return new ResponseEntity<>(service.addInstrument(tempInstrument.getInstrumentName(), tempInstrument.getInstrumentType(),
                 tempInstrument.getMaterial(), tempInstrument.isCarryBag()), HttpStatus.CREATED);
     }
 
@@ -73,13 +73,13 @@ public class WebApiInstrument
             return new ResponseEntity<>("Instrument does not exist!", HttpStatus.NOT_FOUND);
         }
         //don't add an empty joke
-        else if (tempInstrument.getName() == null || tempInstrument.getName().isEmpty())
+        else if (tempInstrument.getInstrumentName() == null || tempInstrument.getInstrumentName().isEmpty())
         {
             return new ResponseEntity<>("The instrument name cannot be empty/null", HttpStatus.BAD_REQUEST);
         }
 
         return new ResponseEntity<>(service.updateInstrument(tempInstrument.getInstrumentID(),
-                tempInstrument.getName(), tempInstrument.getType(), tempInstrument.getMaterial(),
+                tempInstrument.getInstrumentName(), tempInstrument.getInstrumentType(), tempInstrument.getMaterial(),
                 tempInstrument.isCarryBag()), HttpStatus.OK);
     }
 
