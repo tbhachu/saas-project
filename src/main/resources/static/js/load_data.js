@@ -35,15 +35,6 @@ window.onload = function() {
 
 function getRaags(data)
 {
-    /*
-    <select>
-        <option value="none">None</option>
-        <option>Select Raag</option>
-        <option>Kalyan</option>
-        <option>Bihag</option>
-        <option>Desh</option>
-    </select>
-    */
 
     // access the list in our HTML
     let raagsList = document.getElementById("raags-list");
@@ -68,18 +59,9 @@ function getRaags(data)
     }
 }
 
+
 function getInstruments(data)
 {
-    /*
-    <select>
-        <option value="instrument">Select Instrument</option>
-        <option value="none">None</option>
-        <option>Tabla</option>
-        <option>Esraj</option>
-        <option>Rabab</option>
-    </select>
-    */
-
     // access the list in our HTML
     let instrumentList = document.getElementById("instruments-list");
     let select = document.createElement("select");
@@ -104,12 +86,20 @@ function getInstruments(data)
 }
 
 
-
 const form1 = document.getElementById('register');
 form1.addEventListener('submit', addStudent);
 
+let popup = document.getElementById("popup");
+let body = document.getElementById("backgroundImg");
+
+
 function addStudent(event) {
     event.preventDefault();
+
+    // Success screen popup shows up when Submit button is clicked
+    popup.classList.add("open-popup");
+    body.classList.add("s1-popup");
+
 
     let fName = document.getElementById('fname').value;
     let lName = document.getElementById('lname').value;
@@ -128,8 +118,8 @@ function addStudent(event) {
             studentRaag: srcValue,
             studentInstrument: sicValue
         }),
-        header: {
-            "Content-Type": "text/plain;charset=UTF-8"
+        headers: {
+            "Content-Type": "application/json"
         }
     })
         .then(function (response) {
@@ -145,6 +135,13 @@ function addStudent(event) {
 
         })
 }
+
+function closePopUp() {
+    popup.classList.remove("open-popup");
+    body.classList.remove("s1-popup");
+}
+
+
 
 
 
