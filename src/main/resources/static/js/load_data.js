@@ -47,7 +47,6 @@ function getRaags(data)
         // create all elements
         let option = document.createElement("option");
 
-
         // add contents
         option.innerText = raag.raagName;
 
@@ -73,7 +72,6 @@ function getInstruments(data)
         // create all elements
         let option = document.createElement("option");
 
-
         // add contents
         option.innerText = instrument.instrumentName;
 
@@ -85,13 +83,13 @@ function getInstruments(data)
     }
 }
 
-
+// Storing the form
 const form1 = document.getElementById('register');
 form1.addEventListener('submit', addStudent);
 
+// Variables for popup animation
 let popup = document.getElementById("popup");
 let body = document.getElementById("backgroundImg");
-
 
 function addStudent(event) {
     event.preventDefault();
@@ -100,7 +98,7 @@ function addStudent(event) {
     popup.classList.add("open-popup");
     body.classList.add("s1-popup");
 
-
+    // Collect inputs and store into variables
     let fName = document.getElementById('fname').value;
     let lName = document.getElementById('lname').value;
 
