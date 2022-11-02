@@ -10,40 +10,17 @@ version: 1.0
 
 */
 
-/* ------------------- Colors ------------------ */
-
-
+/* -------------- Background Image ----------------  */
 #body {
     background-color: bisque;
 }
 
-.navbar {
-    background-color: rgb(34, 34, 34);
-}
-
-/* ----------------- Navbar --------------------  */
-.navbar {
-    height: 110px;
-}
-
-.navbar-nav {
-    margin-right: 100px;
-}
-
-#navLogo {
-    height: 100px;
-    padding-left: 30px;
-}
-
-/* -------------- Background Image ----------------  */
 #backgroundImg {
-
     display: table;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/DarbarSahib.jpg');
     background-size: cover;
     height: 700px;
-
 }
 
 #showcaseImg {
@@ -57,7 +34,27 @@ div.mainTitle {
 }
 
 
+/* ----------------- Navbar --------------------  */
+.navbar {
+    background-color: rgb(34, 34, 34);
+    height: 110px;
+}
+
+.navbar-nav {
+    margin-right: 100px;
+}
+
+#navLogo {
+    height: 100px;
+    padding-left: 30px;
+}
+
 /* ------------------- Form ------------------  */
+.s1-popup {
+    background-color: rgba(0,0,0,0.5);
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
 
 div.mainRegister {
     width: 400px;
@@ -100,7 +97,7 @@ input.name {
 }
 
 button {
-    width: 200px;
+    width: 100%;
     padding: 7px;
     font-size: 16px;
     font-family: sans-serif;
@@ -115,20 +112,11 @@ button {
 }
 
 button:hover {
-    background-color: #3babe7; /* Green */
+    background-color: #3babe7;
     color: white;
 }
 
-.s2 {
-    width: 500px;
-    margin-bottom: 15px;
-    background-color: rgba(0,0,0,0.5);
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    color:#fff;
-}
+
 
 #raags-list {
     width: 100%;
@@ -150,4 +138,59 @@ button:hover {
 
 select {
     width: 100%;
+}
+
+
+/* --------- Successful Submit Page ------------------  */
+.popup {
+    width: 500px;
+    background: #fff;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background: #4b96e1;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+.popup button:hover {
+    background-color: #3babe7;
+    color: white;
 }
