@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Service class for supporting CRUD functionality methods for Student objects
+ *
+ * @author Tarsem Bhachu
+ * @version 1.0
+ */
 @Service
 public class StudentService
 {
@@ -15,6 +21,13 @@ public class StudentService
             new Student("None", "N/A", "N/A", "N/A")
     ));
 
+    /**
+     * @param studentFName Name of the student's first name
+     * @param studentLName Name of the student's last name
+     * @param studentRaag Name of the Raag the student wants to learn
+     * @param studentInstrument Name of the instrument the student wants to learn
+     * @return Returns a student object
+     */
     //CREATE
     public Student addStudent(String studentFName, String studentLName,
                            String studentRaag, String studentInstrument)
@@ -24,12 +37,19 @@ public class StudentService
         return added;
     }
 
+    /**
+     * @return Returns list of student objects
+     */
     //READ
     public List<Student> allStudents()
     {
         return students;
     }
 
+    /**
+     * @param queryValue The specific student being searched for
+     * @return Returns list of students
+     */
     public List<Student> searchStudents(String queryValue)
     {
         return students.stream()
@@ -39,12 +59,20 @@ public class StudentService
                 .toList();
     }
 
+    /**
+     * @param uuid Unique ID of the student
+     * @param studentFName Name of the student's first name
+     * @param studentLName Name of the student's last name
+     * @param studentRaag Name of the Raag that student wants to learn
+     * @param studentInstrument Name of the instrument the student wants to learn
+     * @return Returns Student object
+     */
     //UPDATE
-    public Student updateStudent(UUID id, String studentFName, String studentLName,
+    public Student updateStudent(UUID uuid, String studentFName, String studentLName,
                            String studentRaag, String studentInstrument)
     {
         Optional<Student> foundStudent = students.stream()
-                .filter(student -> student.getStudentID().equals(id))
+                .filter(student -> student.getStudentID().equals(uuid))
                 .findFirst();
 
         if (foundStudent.isPresent())
@@ -64,18 +92,25 @@ public class StudentService
         }
     }
 
+    /**
+     * @param uuid Unique ID of the student
+     */
     //DELETE
-    public void deleteStudent(UUID id)
+    public void deleteStudent(UUID uuid)
     {
         students = students.stream()
-                .filter(student -> !student.getStudentID().equals(id))
+                .filter(student -> !student.getStudentID().equals(uuid))
                 .toList();
     }
 
-    public boolean studentExists(UUID id)
+    /**
+     * @param uuid Unique ID of the student
+     * @return Returns true or false value of whether student is in the list
+     */
+    public boolean studentExists(UUID uuid)
     {
         return students.stream()
-                .anyMatch(student -> student.getStudentID().equals(id));
+                .anyMatch(student -> student.getStudentID().equals(uuid));
     }
 
     @Override

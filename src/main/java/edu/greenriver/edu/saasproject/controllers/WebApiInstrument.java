@@ -8,23 +8,34 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class establishes our WEB API to use RESTful services for instrument objects.
+ *
+ * @author Tarsem Bhachu
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("api/v1/instrument")
 public class WebApiInstrument
 {
-    @RequestMapping("/home")
-    public String home()
-    {
-        return "index";
-    }
 
     private InstrumentService service;
 
+    /**
+     * Constructor method for the WebApiInstrument class
+     *
+     * @param service This method accepts the service field whenever a request method is called
+     */
     public WebApiInstrument(InstrumentService service)
     {
         this.service = service;
     }
 
+    /**
+     * This method returns all instrument objects
+     *
+     * @return Returns the response after requesting all objects
+     */
     //GET request to http://localhost:8081/api/v1/instrument
     @GetMapping("")
     public ResponseEntity<List<Instrument>> allInstruments()
@@ -36,6 +47,12 @@ public class WebApiInstrument
     // how do we get inputs through a request
     // **************************************
 
+    /**
+     * This method returns a single instrument object being searched for
+     *
+     * @param query Accepts the instrument object being searched for
+     * @return Returns the response after requesting a specific object
+     */
     @GetMapping("query")
     public ResponseEntity<Object> filterInstruments(@RequestBody Query query)
     {
@@ -50,6 +67,12 @@ public class WebApiInstrument
 
     // **************************************
 
+    /**
+     * This method adds a new instrument object to the list
+     *
+     * @param tempInstrument A temporary object to ensure an empty object doesn't get added
+     * @return Returns a response after using a POST request
+     */
     //POST request to http://localhost:8081/api/v1/instrument
     @PostMapping("")
     public ResponseEntity<Object> addInstrument(@RequestBody Instrument tempInstrument)
@@ -60,14 +83,24 @@ public class WebApiInstrument
             return new ResponseEntity<>("The instrument name cannot be empty/null", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(service.addInstrument(tempInstrument.getInstrumentName(), tempInstrument.getInstrumentType(),
-                tempInstrument.getMaterial(), tempInstrument.isCarryBag()), HttpStatus.CREATED);
+        return new ResponseEntity<>(service.addInstrument(
+                tempInstrument.getInstrumentName(),
+                tempInstrument.getInstrumentType(),
+                tempInstrument.getMaterial(),
+                tempInstrument.isCarryBag()),
+                HttpStatus.CREATED);
     }
 
+    /**
+     * This method allows user to edit the instrument object's fields
+     *
+     * @param tempInstrument Accepts a temporary object to ensure instrument is found
+     * @return Returns response after editing the instrument using PUT request
+     */
     @PutMapping("")
     public ResponseEntity<Object> editInstrument(@RequestBody Instrument tempInstrument)
     {
-        //make sure the id of the Raag is found
+        //make sure the id of the Instrument is found
         if (!service.instrumentExists(tempInstrument.getInstrumentID()))
         {
             return new ResponseEntity<>("Instrument does not exist!", HttpStatus.NOT_FOUND);
@@ -83,6 +116,12 @@ public class WebApiInstrument
                 tempInstrument.isCarryBag()), HttpStatus.OK);
     }
 
+    /**
+     * This method deletes an instrument object from the list
+     *
+     * @param tempInstrument Accepts a temporary object to ensure correct instrument object is within list
+     * @return Returns response after calling DELETE request
+     */
     @DeleteMapping("")
     public ResponseEntity<Object> deleteInstrument(@RequestBody Instrument tempInstrument)
     {
@@ -94,5 +133,12 @@ public class WebApiInstrument
 
         service.deleteInstrument(tempInstrument.getInstrumentID());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Override
+    public String toString() {
+        return "WebApiInstrument{" +
+                "service=" + service +
+                '}';
     }
 }

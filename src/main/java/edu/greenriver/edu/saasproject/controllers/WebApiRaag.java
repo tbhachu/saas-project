@@ -8,23 +8,33 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This class establishes our WEB API to use RESTful services for Raag objects.
+ *
+ * @author Tarsem Bhachu
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("api/v1/raag")
 public class WebApiRaag {
 
-    @RequestMapping("/home")
-    public String home()
-    {
-        return "index";
-    }
-
     private RaagService service;
 
+    /**
+     * Constructor method for the WebApiRaag class
+     *
+     * @param service This method accepts the service field whenever a request method is called
+     */
     public WebApiRaag(RaagService service)
     {
         this.service = service;
     }
 
+    /**
+     * Method returns all Raag objects
+     *
+     * @return Returns the response after requesting all objects
+     */
     //GET request to http://localhost:8081/api/v1/raag
     @GetMapping("")
     public ResponseEntity<List<Raag>> allRaags()
@@ -36,6 +46,12 @@ public class WebApiRaag {
     // how do we get inputs through a request
     // **************************************
 
+    /**
+     * This method returns a single Raag object being searched for
+     *
+     * @param query Accepts the Raag object being searched for
+     * @return Returns the response after requesting a specific object
+     */
     //GET request to http://localhost:8081/api/v1/query
     @GetMapping("query")
     public ResponseEntity<Object> filterRaags(@RequestBody Query query)
@@ -52,6 +68,12 @@ public class WebApiRaag {
 
     // **************************************
 
+    /**
+     * This method adds a new Raag object to the list
+     *
+     * @param tempRaag A temporary object to ensure an empty object doesn't get added
+     * @return Returns a response after using a POST request
+     */
     //POST request to http://localhost:8081/api/v1/raag
     @PostMapping("")
     public ResponseEntity<Object> addRaag(@RequestBody Raag tempRaag)
@@ -66,6 +88,12 @@ public class WebApiRaag {
                 tempRaag.getRaagTime(), tempRaag.getVaadi()), HttpStatus.CREATED);
     }
 
+    /**
+     * This method allows user to edit the Raag object's fields
+     *
+     * @param tempRaag Accepts a temporary object to ensure instrument is found
+     * @return Returns response after editing the Raag using PUT request
+     */
     @PutMapping("")
     public ResponseEntity<Object> editRaag(@RequestBody Raag tempRaag)
     {
@@ -84,6 +112,12 @@ public class WebApiRaag {
                 tempRaag.getThaat(), tempRaag.getRaagTime(), tempRaag.getVaadi()), HttpStatus.OK);
     }
 
+    /**
+     * This method deletes a Raag object from the list
+     *
+     * @param tempRaag Accepts a temporary object to ensure correct Raag object is within list
+     * @return Returns response after calling DELETE request
+     */
     @DeleteMapping("")
     public ResponseEntity<Object> deleteRaag(@RequestBody Raag tempRaag)
     {
@@ -95,5 +129,12 @@ public class WebApiRaag {
 
         service.deleteRaag(tempRaag.getRaagID());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @Override
+    public String toString() {
+        return "WebApiRaag{" +
+                "service=" + service +
+                '}';
     }
 }
