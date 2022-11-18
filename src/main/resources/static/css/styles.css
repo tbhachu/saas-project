@@ -204,3 +204,33 @@ select {
     background-color: #3babe7;
     color: white;
 }
+
+/* --------- Public API Weather Data ------------------  */
+#public-api {
+    background-image: linear-gradient(to bottom right, #5b64d2, #6579a8);
+    text-align: center;
+    display: inline-block;
+    width: 170px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    color:#fff;
+
+}
+
+#divLocation > h6 {
+    margin-top: 5px;
+    font-family: sans-serif;
+}
+
+#divTemp > p {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#divIcon > img {
+    width: 100px;
+}
