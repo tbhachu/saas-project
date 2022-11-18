@@ -173,8 +173,6 @@ function closePopUp() {
 
 function displayWeather(data)
 {
-    let apiSection = document.getElementById("public-api");
-
     // apiSection.innerHTML = '<h4>Weather</h4>' + data.current.condition.text + '<br>';
     // apiSection.append(data.current.condition.icon + '<br>');
     // apiSection.append(data.current.temp_f);
@@ -201,12 +199,10 @@ function displayWeather(data)
             month: 'short'
         });
         let currentYear = currentDate.getFullYear();
-        let dateString = (currentMonth) + ", " + currentDay + "-" + currentYear;
+        locationDate.innerText = (currentMonth) + ", " + currentDay + "-" + currentYear;
 
-
-    locationDate.innerText = dateString;
     img.setAttribute('src', data.current.condition.icon);
-    pTemp.innerText = data.current.temp_f;
+    pTemp.innerText = data.current.temp_f + '°F';
 
     // connect them
     location.appendChild(locationRegion);
