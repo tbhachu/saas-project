@@ -1,5 +1,5 @@
-#How to Play Esraj
-##Learning Indian Classical Stringed Instruments
+#Gurmat Sangeet
+##Learning Indian Classical Instruments
 
 Project Properties
 Author: Tarsem Bhachu
