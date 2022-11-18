@@ -9,27 +9,26 @@
  * @version 1.0
  */
 
-window.onload = function()
-{
+window.onload = function() {
   let uri = "http://localhost:8081/api/v1/raag";
   let uri2 = 'http://localhost:8081/api/v1/instrument';
   let params = {
       method: "get"
   };
 
-  const options = {
-      method: 'GET',
-      headers: {
-          'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
-          'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-      }
-  };
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
+            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        }
+    };
 
-  fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Seattle%2C%20WA', options)
-      .then(response => response.json())
-      .then((data) => {
-          displayWeather(data)
-      })
+    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Seattle%2C%20WA', options)
+        .then(response => response.json())
+        .then((data) => {
+            displayWeather(data)
+        })
 
   fetch(uri, params)
       .then(function(response) {
@@ -39,17 +38,19 @@ window.onload = function()
           getRaags(data)
       });
 
-  fetch(uri2, params)
-      .then(function(response) {
-          return response.json();
-      })
-      .then(function (data) {
-          getInstruments(data)
-      });
+    fetch(uri2, params)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function (data) {
+            getInstruments(data)
+        });
+
 };
 
 function getRaags(data)
 {
+
     // access the list in our HTML
     let raagsList = document.getElementById("raags-list");
     let select = document.createElement("select");
@@ -71,6 +72,7 @@ function getRaags(data)
         raagsList.appendChild(select);
     }
 }
+
 
 function getInstruments(data)
 {
@@ -176,7 +178,7 @@ function displayWeather(data)
             month: 'short'
         });
         let currentYear = currentDate.getFullYear();
-        locationDate.innerText = (currentMonth) + ", " + currentDay + "-" + currentYear;
+        locationDate.innerText = (currentMonth) + " " + currentDay + ", " + currentYear;
 
     img.setAttribute('src', data.current.condition.icon);
     pTemp.innerText = data.current.temp_f + '°F';
