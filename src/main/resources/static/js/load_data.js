@@ -9,6 +9,9 @@
  * @version 1.0
  */
 
+/**
+ * Onload function retrieves data from API endpoint using fetch() function. Data is loaded on page-load.
+ */
 window.onload = function() {
   let uri = "http://localhost:8081/api/v1/raag";
   let uri2 = 'http://localhost:8081/api/v1/instrument';
@@ -48,9 +51,14 @@ window.onload = function() {
 
 };
 
+
+/**
+ * Function retrieves all Raags currently in database and displays them in drop-down menu for selection.
+ *
+ * @param data Accepts json data of the Raag object from the API endpoint.
+ */
 function getRaags(data)
 {
-
     // access the list in our HTML
     let raagsList = document.getElementById("raags-list");
     let select = document.createElement("select");
@@ -73,7 +81,12 @@ function getRaags(data)
     }
 }
 
-
+/**
+ * Function retrieves all instrument objects currently in database and displays them in
+ * drop-down menu for selection.
+ *
+ * @param data Accepts json data of the instrument object from the API endpoint.
+ */
 function getInstruments(data)
 {
     // access the list in our HTML
@@ -106,6 +119,11 @@ form1.addEventListener('submit', addStudent);
 let popup = document.getElementById("popup");
 let body = document.getElementById("backgroundImg");
 
+/**
+ * Adds a new student to the database once form is filled. Form is posted to database.
+ *
+ * @param event Accepts the form data to be posted to the database.
+ */
 function addStudent(event) {
     event.preventDefault();
 
@@ -149,11 +167,22 @@ function addStudent(event) {
         })
 }
 
+
+/**
+ * Helps close the pop-up after user's form submission is successful.
+ */
 function closePopUp() {
     popup.classList.remove("open-popup");
     body.classList.remove("s1-popup");
 }
 
+/**
+ * Integrates json from the public api weather data and displays real-time weather
+ * information to the front-end. Info includes city/state, current date, current temperature,
+ * and a small icon indicating the current weather.
+ *
+ * @param data Accepts json data of the weather data object from the public API endpoint.
+ */
 function displayWeather(data)
 {
     // store all divs
