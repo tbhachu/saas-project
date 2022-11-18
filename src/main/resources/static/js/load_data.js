@@ -16,6 +16,37 @@ window.onload = function() {
       method: "get"
   };
 
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
+            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+        }
+    };
+
+    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Seattle%2C%20WA', options)
+        .then(response => response.json())
+        .then((data) => {
+            displayWeather(data)
+        })
+
+    /*
+  let options = {
+      method: 'get',
+      headers: {
+          'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
+          'X-RapidAPI-Host': 'world-time2.p.rapidapi.com'
+      }
+  };
+
+  fetch('https://world-time2.p.rapidapi.com/timezone/America/Los_Angeles', options)
+      .then(response => response.json())
+      .then((data) => {
+          getTimeZone(data)
+      })
+
+     */
+
   fetch(uri, params)
       .then(function(response) {
           return response.json();
@@ -31,6 +62,7 @@ window.onload = function() {
         .then(function (data) {
             getInstruments(data)
         });
+
 };
 
 function getRaags(data)
@@ -139,7 +171,65 @@ function closePopUp() {
     body.classList.remove("s1-popup");
 }
 
+function displayWeather(data)
+{
+    let apiSection = document.getElementById("public-api");
+
+    // apiSection.innerHTML = '<h4>Weather</h4>' + data.current.condition.text + '<br>';
+    // apiSection.append(data.current.condition.icon + '<br>');
+    // apiSection.append(data.current.temp_f);
+
+    // store all divs
+    let location = document.getElementById("divLocation");
+    let date = document.getElementById("divDate");
+    let icon = document.getElementById("divIcon");
+    let temp = document.getElementById("divTemp");
+
+    // Create all tags
+    let locationRegion = document.createElement("h6");
+    let locationDate = document.createElement("h7");
+    let img = document.createElement("img");
+    let pTemp = document.createElement("p");
+
+    // Add contents
+    locationRegion.innerText = data.location.name + ", " +  data.location.region;
+
+        // Creating a String for Date
+        let currentDate = new Date(data.location.localtime);
+        let currentDay = currentDate.getDate();
+        let currentMonth = currentDate.toLocaleString('default', {
+            month: 'short'
+        });
+        let currentYear = currentDate.getFullYear();
+        let dateString = (currentMonth) + ", " + currentDay + "-" + currentYear;
 
 
+    locationDate.innerText = dateString;
+    img.setAttribute('src', data.current.condition.icon);
+    pTemp.innerText = data.current.temp_f;
+
+    // connect them
+    location.appendChild(locationRegion);
+    date.appendChild(locationDate);
+    icon.appendChild(img);
+    temp.appendChild(pTemp);
+
+
+}
+
+/*
+function getTimeZone(data)
+{
+    // access the list in our HTML
+    let timeZoneList = document.getElementById("time-container");
+
+
+
+    timeZoneList.innerHTML = '<h4>Time Zone</h4>' + dateString;
+
+
+}
+
+ */
 
 
