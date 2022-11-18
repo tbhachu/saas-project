@@ -9,43 +9,27 @@
  * @version 1.0
  */
 
-window.onload = function() {
+window.onload = function()
+{
   let uri = "http://localhost:8081/api/v1/raag";
   let uri2 = 'http://localhost:8081/api/v1/instrument';
   let params = {
       method: "get"
   };
 
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-        }
-    };
-
-    fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Seattle%2C%20WA', options)
-        .then(response => response.json())
-        .then((data) => {
-            displayWeather(data)
-        })
-
-    /*
-  let options = {
-      method: 'get',
+  const options = {
+      method: 'GET',
       headers: {
           'X-RapidAPI-Key': 'e1b717b857msha21732689797170p13d8fdjsn503ecce181cd',
-          'X-RapidAPI-Host': 'world-time2.p.rapidapi.com'
+          'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
       }
   };
 
-  fetch('https://world-time2.p.rapidapi.com/timezone/America/Los_Angeles', options)
+  fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Seattle%2C%20WA', options)
       .then(response => response.json())
       .then((data) => {
-          getTimeZone(data)
+          displayWeather(data)
       })
-
-     */
 
   fetch(uri, params)
       .then(function(response) {
@@ -55,19 +39,17 @@ window.onload = function() {
           getRaags(data)
       });
 
-    fetch(uri2, params)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function (data) {
-            getInstruments(data)
-        });
-
+  fetch(uri2, params)
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function (data) {
+          getInstruments(data)
+      });
 };
 
 function getRaags(data)
 {
-
     // access the list in our HTML
     let raagsList = document.getElementById("raags-list");
     let select = document.createElement("select");
@@ -89,7 +71,6 @@ function getRaags(data)
         raagsList.appendChild(select);
     }
 }
-
 
 function getInstruments(data)
 {
@@ -173,10 +154,6 @@ function closePopUp() {
 
 function displayWeather(data)
 {
-    // apiSection.innerHTML = '<h4>Weather</h4>' + data.current.condition.text + '<br>';
-    // apiSection.append(data.current.condition.icon + '<br>');
-    // apiSection.append(data.current.temp_f);
-
     // store all divs
     let location = document.getElementById("divLocation");
     let date = document.getElementById("divDate");
@@ -210,22 +187,7 @@ function displayWeather(data)
     icon.appendChild(img);
     temp.appendChild(pTemp);
 
-
 }
 
-/*
-function getTimeZone(data)
-{
-    // access the list in our HTML
-    let timeZoneList = document.getElementById("time-container");
-
-
-
-    timeZoneList.innerHTML = '<h4>Time Zone</h4>' + dateString;
-
-
-}
-
- */
 
 
