@@ -1,5 +1,5 @@
-#How to Play Esraj
-##Learning Indian Classical Stringed Instruments
+#Gurmat Sangeet
+##Learning Indian Classical Instruments
 
 Project Properties
 Author: Tarsem Bhachu
@@ -16,8 +16,12 @@ Deploying to the Cloud
 Project Description
 Use Spring Boot framework to build a software as a service (SaaS) application that 
 is developed or deployed in the cloud. This website will feature a basic introduction 
-on how to play the stringed instrument, Esraj.
+on how to play certain classical instruments such as Esraj, Rabab and Dilruba.
 
 10/16/2022
 Assignment: Writing a Web API
 Link to PostMan Collection Publication: https://documenter.getpostman.com/view/23585703/2s847CwaeC
+
+11/18/2022
+Assignment: Integrating Public API
+Link to Public API: https://rapidapi.com/weatherapi/api/weatherapi-com
