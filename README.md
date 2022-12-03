@@ -25,3 +25,7 @@ Link to PostMan Collection Publication: https://documenter.getpostman.com/view/2
 11/18/2022
 Assignment: Integrating Public API
 Link to Public API: https://rapidapi.com/weatherapi/api/weatherapi-com
+
+12/2/2022
+Assignment: Deploying an Application to the Cloud
+Compute Engine App Link: http://35.185.216.255:8081/
