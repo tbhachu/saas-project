@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/v1/raag")
+@CrossOrigin(origins = "*")
 public class WebApiRaag {
 
     private RaagService service;

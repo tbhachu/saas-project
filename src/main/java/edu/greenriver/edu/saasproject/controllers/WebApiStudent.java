@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("api/v1/student")
+@CrossOrigin(origins = "*")
 public class WebApiStudent
 {
 
