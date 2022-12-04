@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    chapter: services
+spec:
+  containers:
+  - name: my-api-container
+    image: tbhachu/my-api-saas
+    ports:
+    - containerPort: 8081
