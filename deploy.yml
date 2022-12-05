@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <deployment-name>
+  name: my-deployment
 spec:
-  replicas: <num-replicas>
+  replicas: 2
   selector:
     matchLabels:
       chapter: services
@@ -13,7 +13,7 @@ spec:
         chapter: services
     spec:
       containers:
-      - name: <container-name>
-        image: <image-name>
+      - name: my-api-container
+        image: tbhachu/my-api-saas
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
